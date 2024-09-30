@@ -382,33 +382,24 @@ One day, one day, one day`,
 export function SongList() {
   return (
     <div className="min-h-screen bg-white">
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-      </Head>
-      <div className="container mx-auto p-4">
-        <h1 className="text-4xl font-bold mb-8 text-gray-700">Waterloo Region October 7th Memorial Ceremony</h1>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-gray-700">Waterloo Region October 7th Memorial Ceremony</h1>
         {content.map((item, index) => (
           <div key={index} className="mb-12">
             {item.type === 'song' ? (
               <div className="flex flex-col md:flex-row gap-8">
                 <div className="flex-grow">
-                  <h2 className="text-3xl font-semibold mb-2 text-gray-700">{item.title}</h2>
-                  <pre className="whitespace-pre-wrap font-sans text-xl text-gray-600 leading-relaxed">{item.lyrics}</pre>
+                  <h2 className="text-2xl sm:text-3xl font-semibold mb-2 text-gray-700">{item.title}</h2>
+                  <pre className="whitespace-pre-wrap font-sans text-base sm:text-xl text-gray-600 leading-relaxed max-w-full overflow-x-auto">{item.lyrics}</pre>
                 </div>
                 {item.rightImage && (
-                  <div className="md:w-2/5 flex-shrink-0 pt-14">
-                    <div
-                      className="relative"
-                      style={{
-                        width: `${item.rightImage.width}px`,
-                        height: `${item.rightImage.height}px`,
-                      }}
-                    >
+                  <div className="md:w-2/5 flex-shrink-0 pt-4 md:pt-14">
+                    <div className="relative w-full" style={{ maxWidth: '500px', aspectRatio: `${item.rightImage.width} / ${item.rightImage.height}` }}>
                       <Image
                         src={item.rightImage.src}
                         alt={`Image for ${item.title}`}
                         fill
-                        style={{ objectFit: 'contain' }} // use style to set objectFit
+                        style={{ objectFit: 'contain' }}
                         quality={100}
                       />
                     </div>
@@ -417,22 +408,23 @@ export function SongList() {
               </div>
             ) : item.type === 'fullWidthImage' ? (
               <div>
-                <h2 className="text-3xl font-semibold mb-2 text-gray-700">{item.title}</h2>
-                <Image
-                  src={item.imageUrl}
-                  alt={item.altText}
-                  width={1200}
-                  height={600}
-                  style={{ objectFit: 'contain' }} // apply objectFit via style
-                />
+                <h2 className="text-2xl sm:text-3xl font-semibold mb-2 text-gray-700">{item.title}</h2>
+                <div className="relative w-full" style={{ maxWidth: '1200px', aspectRatio: '2 / 1' }}>
+                  <Image
+                    src={item.imageUrl}
+                    alt={item.altText}
+                    fill
+                    style={{ objectFit: 'contain' }}
+                  />
+                </div>
               </div>
             ) : null}
           </div>
         ))}
       </div>
 
-      <h2 className="p-4 text-3xl font-semibold mb-2 text-gray-700">How to help victims of October 7th</h2>
-      <p className="p-4 whitespace-pre-wrap font-sans text-xl text-gray-600 leading-relaxed">
+      <h2 className="px-4 sm:px-6 lg:px-8 text-2xl sm:text-3xl font-semibold mb-2 text-gray-700">How to help victims of October 7th</h2>
+      <p className="px-4 sm:px-6 lg:px-8 whitespace-pre-wrap font-sans text-base sm:text-xl text-gray-600 leading-relaxed">
         Hostages and missing families forum:{' '}
         <a href="https://stories.bringthemhomenow.net/" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
           https://stories.bringthemhomenow.net/
