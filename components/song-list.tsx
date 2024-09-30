@@ -397,14 +397,19 @@ export function SongList() {
                 </div>
                 {item.rightImage && (
                   <div className="md:w-2/5 flex-shrink-0 pt-14">
-                    <div className="relative" style={{ width: item.rightImage.width, height: item.rightImage.height }}>
+                    <div
+                      className="relative"
+                      style={{
+                        width: `${item.rightImage.width}px`,
+                        height: `${item.rightImage.height}px`,
+                      }}
+                    >
                       <Image
                         src={item.rightImage.src}
                         alt={`Image for ${item.title}`}
-                        layout="fill"
-                        objectFit="contain"
+                        fill
+                        style={{ objectFit: 'contain' }} // use style to set objectFit
                         quality={100}
-                        
                       />
                     </div>
                   </div>
@@ -418,28 +423,26 @@ export function SongList() {
                   alt={item.altText}
                   width={1200}
                   height={600}
-                  layout="responsive"
-                  objectFit="contain"></Image>
+                  style={{ objectFit: 'contain' }} // apply objectFit via style
+                />
               </div>
             ) : null}
-            
           </div>
         ))}
       </div>
-      <h2 className="p-4 text-3xl font-semibold mb-2 text-gray-700">How to help victims of October 7th</h2>
-<p className="p-4 whitespace-pre-wrap font-sans text-xl text-gray-600 leading-relaxed">
-  Hostages and missing families forum: 
-  <a href="https://stories.bringthemhomenow.net/" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
-    https://stories.bringthemhomenow.net/
-  </a>
-  <br />
-  Tikva hostages families forum: 
-  <a href="https://forum-tikva.org.il/eng/" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
-    https://forum-tikva.org.il/eng/
-  </a>
-</p>
 
+      <h2 className="p-4 text-3xl font-semibold mb-2 text-gray-700">How to help victims of October 7th</h2>
+      <p className="p-4 whitespace-pre-wrap font-sans text-xl text-gray-600 leading-relaxed">
+        Hostages and missing families forum:{' '}
+        <a href="https://stories.bringthemhomenow.net/" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
+          https://stories.bringthemhomenow.net/
+        </a>
+        <br />
+        Tikva hostages families forum:{' '}
+        <a href="https://forum-tikva.org.il/eng/" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
+          https://forum-tikva.org.il/eng/
+        </a>
+      </p>
     </div>
-    
   );
 }
