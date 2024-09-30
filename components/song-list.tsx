@@ -2,6 +2,8 @@
 
 import React from 'react'
 import Image from 'next/image'
+import Head from 'next/head';
+
 
 type SongItem = {
   type: 'song'
@@ -380,6 +382,9 @@ One day, one day, one day`,
 export function SongList() {
   return (
     <div className="min-h-screen bg-white">
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      </Head>
       <div className="container mx-auto p-4">
         <h1 className="text-4xl font-bold mb-8 text-gray-700">Waterloo Region October 7th Memorial Ceremony</h1>
         {content.map((item, index) => (
