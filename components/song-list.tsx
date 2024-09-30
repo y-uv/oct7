@@ -399,6 +399,7 @@ export function SongList() {
                         layout="fill"
                         objectFit="contain"
                         quality={100}
+                        
                       />
                     </div>
                   </div>
@@ -407,11 +408,13 @@ export function SongList() {
             ) : item.type === 'fullWidthImage' ? (
               <div>
                 <h2 className="text-3xl font-semibold mb-2 text-gray-700">{item.title}</h2>
-                <img
+                <Image
                   src={item.imageUrl}
                   alt={item.altText}
-                  className="w-full h-auto"
-                />
+                  width={1200}
+                  height={600}
+                  layout="responsive"
+                  objectFit="contain"></Image>
               </div>
             ) : null}
             
@@ -425,7 +428,7 @@ export function SongList() {
     https://stories.bringthemhomenow.net/
   </a>
   <br />
-  Tikva hostages' families forum: 
+  Tikva hostages families forum: 
   <a href="https://forum-tikva.org.il/eng/" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
     https://forum-tikva.org.il/eng/
   </a>
